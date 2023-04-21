@@ -33,6 +33,31 @@ class Program
             letter = "F";
         }
 
+        // Stretch 1, 2, 3
+        
+        // Stretch Challenge #1, #2, #3
+        string fd = userInput.Substring(0, 1);
+        int firstDigit = int.Parse(fd);
+
+        string ld = userInput.Substring(1, 1);
+        int lastDigit = int.Parse(ld);
+        // testing
+        // Console.WriteLine($"fd = {firstDigit}, ld = {lastDigit}");
+
+        // Logic for plus or minus grade
+        string ext;
+        if ((firstDigit > 5 && firstDigit < 9) && lastDigit >= 7)
+        {
+            ext = "+";
+        }
+        else if ((firstDigit > 5 && firstDigit <= 9) && lastDigit < 3)
+        {
+            ext = "-";
+        }
+        else
+        {
+            ext = "";
+        }
 
         // Core Requirement 2
         Console.WriteLine($"You earned an letter grade of {letter}");
