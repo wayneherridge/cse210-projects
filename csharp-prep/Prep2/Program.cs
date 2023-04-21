@@ -4,8 +4,6 @@ public class Program
 {
 	public static void Main()
 	{
-		// Console.WriteLine("Hello Prep2 World!");
-
         // Core Requirement 1 and 3
         Console.Write("What is your grade percentage? ");
         string userInput = Console.ReadLine();
@@ -34,8 +32,6 @@ public class Program
         }
 
         // Stretch 1, 2, 3
-        
-        // Stretch Challenge #1, #2, #3
         string fd = userInput.Substring(0, 1);
         int firstDigit = int.Parse(fd);
 
