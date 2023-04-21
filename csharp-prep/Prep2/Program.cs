@@ -1,10 +1,10 @@
 using System;
-
-class Program
+					
+public class Program
 {
-    static void Main(string[] args)
-    {
-        // Console.WriteLine("Hello Prep2 World!");
+	public static void Main()
+	{
+		// Console.WriteLine("Hello Prep2 World!");
 
         // Core Requirement 1 and 3
         Console.Write("What is your grade percentage? ");
@@ -41,10 +41,8 @@ class Program
 
         string ld = userInput.Substring(1, 1);
         int lastDigit = int.Parse(ld);
-        // testing
-        // Console.WriteLine($"fd = {firstDigit}, ld = {lastDigit}");
 
-        // Logic for plus or minus grade
+        // Plus or minus grade
         string ext;
         if ((firstDigit > 5 && firstDigit < 9) && lastDigit >= 7)
         {
@@ -60,7 +58,7 @@ class Program
         }
 
         // Core Requirement 2
-        Console.WriteLine($"You earned an letter grade of {letter}");
+        Console.WriteLine($"You earned an letter grade of {letter} {ext}");
 
         if (gradePercent >= 70)
         {
@@ -70,7 +68,5 @@ class Program
         {
             Console.WriteLine("Sorry, you did not pass. Better luck next time!");
         }
-
-        
     }
 }
