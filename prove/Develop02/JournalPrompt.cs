@@ -27,4 +27,5 @@ public class JournalPrompt
         string prompt = promptList[randomNumber];
         return prompt;
     }
+
 }

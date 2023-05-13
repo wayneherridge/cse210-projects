@@ -15,4 +15,10 @@ public class JournalEntry
         Console.WriteLine($"Date: {_currentDate}, Prompt: {_prompt}");
         Console.WriteLine($"Entry: {_response}");
     }
+
+    // constructor
+    public JournalEntry()
+    {
+
+    }
 }
