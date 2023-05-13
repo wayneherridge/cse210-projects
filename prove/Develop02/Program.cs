@@ -2,8 +2,8 @@ using System;
 using System.IO;
 
 // All requirements met
-// Exceeded requirements by adding an ID field to give each record a unique reference.
-
+// Exceeded requirements by adding an ID field to give each record a unique reference and
+// by saving to .csv format.
 
 class Program
 {
