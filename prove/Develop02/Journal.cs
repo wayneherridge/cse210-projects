@@ -20,7 +20,7 @@ public class Journal
 {
         Console.Write("What would you like to name your file? ");
         string userInput = Console.ReadLine();
-        _userFileName = userInput + ".txt";
+        _userFileName = userInput + ".csv";
 
         using (StreamWriter outputFile = new StreamWriter(_userFileName))
         {
@@ -35,9 +35,9 @@ public class Journal
 
     public void LoadEntries()
     {
-        Console.Write("What your file name? ");
+        Console.Write("What file would you like to load? ");
         string userInput = Console.ReadLine();
-        _userFileName = userInput + ".txt";
+        _userFileName = userInput + ".csv";
 
         if (File.Exists(_userFileName))
         {
