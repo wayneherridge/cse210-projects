@@ -36,8 +36,6 @@ public class Reference
     {
         foreach (Reference item in _reference)
         {
-            // var test = item._verseEnd.Equals(0);
-            // Console.WriteLine(test);
             if (item._verseEnd.Equals(0))
             {
                 item.RefOne();

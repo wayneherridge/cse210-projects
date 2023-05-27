@@ -4,7 +4,6 @@ using System.Linq;
 public class Word
 {
     // Variables
-    // public string _words = "";
     public string _ref = "";
     public string[] _result;
     public List<int> _hidden;
@@ -15,7 +14,6 @@ public class Word
     }
     public Word(string text, string visible)
     {
-
     }
     public void GetRenderedText(Scripture scripture)
     {
