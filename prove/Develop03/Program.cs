@@ -36,7 +36,7 @@ class Program
 
         while (true)
         {
-            Console.WriteLine("\nPress Enter to hide 3 random words or type 'quit' to exit.");
+            Console.WriteLine("\nPress enter to continue or type 'quit' to finish:");
 
             var input = Console.ReadLine();
             if (input == "quit")
