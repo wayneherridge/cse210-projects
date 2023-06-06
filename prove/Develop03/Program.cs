@@ -2,93 +2,49 @@ using System;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
-        // Clear the console
+        var scripture = new Scripture();
+        var reference = new Reference();
+        var words = new List<Word>();
+
+        // Set the scripture reference
+        reference.Book = "John";
+        reference.Chapter = 3;
+        reference.Verse = 16;
+
+        scripture.Reference = $"{reference.Book} {reference.Chapter}:{reference.Verse}";
+
+        // Set the scripture text
+        var scriptureText = "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.";
+        var textWords = scriptureText.Split(' ');
+
+        foreach (var wordText in textWords)
+        {
+            var word = new Word();
+            word.Text = wordText;
+            word.IsHidden = false;
+            words.Add(word);
+        }
+
+        scripture.Words = words;
+
+        // Display the complete scripture
         Console.Clear();
+        Console.WriteLine($"{scripture.Reference}:");
+        Console.WriteLine(scripture.GetRenderedText());
 
-        Reference reference = new Reference();
-        reference.LoadRef();
-        Scripture scripture = new Scripture();
-        scripture.LoadScriptures();
-        Word word = new Word();
-
-        //  Show the welcome message
-        Console.WriteLine("\n-----------------------------------------");
-        Console.WriteLine("Welcome to The Scripture Memorizer Program!");
-        Console.WriteLine("-------------------------------------------\n");
-
-        int userChoice = 0;
-
-        while (userChoice != 3)
+        while (true)
         {
-            userChoice = UserChoice();
+            Console.WriteLine("\nPress Enter to hide 3 random words or type 'quit' to exit.");
 
-            switch (userChoice)
-            {
-                case 1:
-                    reference.DisplayRef();
-
-                    break;
-                case 2:
-                    string script = scripture.RandomScripture();
-                    string ref1 = reference.GetRef(scripture);
-                    word.GetRenderedText(scripture);
-                    word.GetRenderedRef(scripture);
-
-                    while (word._hidden.Count < word._result.Length)
-                    {
-                        word.Show(ref1);
-                        word.GetReadKey();
-                    }
-                    word.Show(ref1);
-                    break;
-                case 3:
-                    Console.WriteLine("\n Come back to learn another verse soon! \n");
-                    break;
-                default:
-                    Console.WriteLine($"\nPlease enter 1,2 or Q!");
-                    break;
-            }
+            var input = Console.ReadLine();
+            if (input == "quit")
+                break;
+            Console.Clear();
+            scripture.HideRandomWords();
+            Console.WriteLine($"{scripture.Reference}:");
+            Console.WriteLine(scripture.GetRenderedText());
         }
-    }
-
-    static int UserChoice()
-    // Method to display choices to user
-    {
-        Reference reference = new Reference();
-
-        string choices = $@"
-
-Please select one of the following options:
-1. Display all available scripture references
-2. Randomly select a scripture to work on
-Q. Quit
-
-What would you like to do?  ";
-
-        Console.Write(choices);
-
-        string userInput = Console.ReadLine();
-        userInput.ToLower();
-        int userChoice = 0;
-        try
-        {
-            if (userInput == "q")
-            {
-                userInput = "3";
-            }
-            userChoice = int.Parse(userInput);
-        }
-        catch (FormatException)
-        {
-            userChoice = 0;
-        }
-        catch (Exception exception)
-        {
-            Console.WriteLine(
-                $"Unexpected error:  {exception.Message}");
-        }
-        return userChoice;
     }
 }

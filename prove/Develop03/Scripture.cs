@@ -1,67 +1,48 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+
 public class Scripture
 {
-    // Variables
-    public List<Scripture> _scripture = new List<Scripture>();
-    private string _fileName = "Scriptures.txt";
-    private string _key;
-    private string _text;
-    public int _index;
-    public string _scriptureText;
+    private string reference;
+    private List<Word> words;
 
-
-    // Methods
-    public void LoadScriptures()
+    public string Reference
     {
-        List<string> readText = File.ReadAllLines(_fileName).Where(arg => !string.IsNullOrWhiteSpace(arg)).ToList();
-
-        foreach (string line in readText)
-        {
-            string[] entries = line.Split(";");
-
-            Scripture entry = new Scripture();
-
-            entry._key = entries[0];
-            entry._text = entries[6];
-
-            _scripture.Add(entry);
-        }
+        get { return reference; }
+        set { reference = value; }
     }
 
-    public void ScriptureDisplay()
+    public List<Word> Words
     {
-        foreach (Scripture item in _scripture)
-        {
-            item.ShowScripture();
-        }
-    }
-    public void ShowScripture()
-    {
-        Console.WriteLine($"\n{_text}");
+        get { return words; }
+        set { words = value; }
     }
 
-    public int GetRandomIndex()
+    public void HideRandomWords()
     {
         var random = new Random();
-        _index = random.Next(_scripture.Count);
-        return _index;
+        var hiddenWords = words.Where(w => !w.IsHidden).ToList();
+        var count = Math.Min(3, hiddenWords.Count);
+        
+        for (int i = 0; i < count; i++)
+        {
+            var index = random.Next(hiddenWords.Count);
+            hiddenWords[index].IsHidden = true;
+            hiddenWords.RemoveAt(index);
+        }
     }
 
-    public string RandomScripture()
+    public string GetRenderedText()
     {
-        _index = GetRandomIndex();
-       return _scriptureText = _scripture[_index]._text;
-    }
-    public void HideWords()
-    {
-
-    }
-    public void GetRenderedText()
-    {
-
-    }
-    public void IsCompletelyHidden()
-    {
-
+        var renderedText = "";
+        foreach (var word in words)
+        {
+            if (word.IsHidden)
+                renderedText += "___ ";
+            else
+                renderedText += word.Text + " ";
+        }
+        return renderedText.Trim();
     }
 }
