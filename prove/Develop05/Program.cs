@@ -26,7 +26,7 @@ public class Program
         Console.WriteLine("5. Save Goals");
         Console.WriteLine("6. Exit");
 
-        Console.Write("Enter your choice: ");
+        Console.Write("Select a choice from the menu: ");
         int choice = int.Parse(Console.ReadLine());
 
         switch (choice)
@@ -50,7 +50,7 @@ public class Program
                 Environment.Exit(0);
                 break;
             default:
-                Console.WriteLine("Invalid choice. Please try again.");
+                Console.WriteLine("You did not select a menu item. Please try again.");
                 MainMenu();
                 break;
         }
@@ -58,13 +58,13 @@ public class Program
 
     private static void CreateNewGoal()
     {
-        Console.WriteLine("========== Create New Goal ==========");
+        Console.WriteLine("The types of goals are:");
         Console.WriteLine("1. Simple Goal");
         Console.WriteLine("2. Eternal Goal");
         Console.WriteLine("3. Checklist Goal");
         Console.WriteLine("4. Back");
 
-        Console.Write("Enter your choice: ");
+        Console.Write("What type of Goal would you like to create? ");
         int choice = int.Parse(Console.ReadLine());
 
         switch (choice)
@@ -82,7 +82,7 @@ public class Program
                 MainMenu();
                 break;
             default:
-                Console.WriteLine("Invalid choice. Please try again.");
+                Console.WriteLine("You did not select a menu item. Please try again.");
                 CreateNewGoal();
                 break;
         }
@@ -91,11 +91,11 @@ public class Program
     private static void CreateSimpleGoal()
     {
         Console.WriteLine("========== Create Simple Goal ==========");
-        Console.Write("Enter goal name: ");
+        Console.Write("What is the name of your goal? ");
         string name = Console.ReadLine();
-        Console.Write("Enter goal description: ");
+        Console.Write("What is a short description of it? ");
         string description = Console.ReadLine();
-        Console.Write("Enter goal value: ");
+        Console.Write("What is the amount of points associated with this goal? ");
         int value = int.Parse(Console.ReadLine());
 
         Goal goal = new SimpleGoal();
@@ -111,11 +111,11 @@ public class Program
     private static void CreateEternalGoal()
     {
         Console.WriteLine("========== Create Eternal Goal ==========");
-        Console.Write("Enter goal name: ");
+        Console.Write("What is the name of your goal? ");
         string name = Console.ReadLine();
-        Console.Write("Enter goal description: ");
+        Console.Write("What is a short description of it? ");
         string description = Console.ReadLine();
-        Console.Write("Enter goal value: ");
+        Console.Write("What is the amount of points associated with this goal? ");
         int value = int.Parse(Console.ReadLine());
 
         Goal goal = new EternalGoal();
@@ -131,15 +131,15 @@ public class Program
     private static void CreateChecklistGoal()
     {
         Console.WriteLine("========== Create Checklist Goal ==========");
-        Console.Write("Enter goal name: ");
+        Console.Write("What is the name of your goal? ");
         string name = Console.ReadLine();
-        Console.Write("Enter goal description: ");
+        Console.Write("What is a short description of it? ");
         string description = Console.ReadLine();
-        Console.Write("Enter goal value: ");
+        Console.Write("What is the amount of points associated with this goal? ");
         int value = int.Parse(Console.ReadLine());
-        Console.Write("Enter required times for completion: ");
+        Console.Write("How many times does this goal need to be accomplished for a bonus? ");
         int requiredTimes = int.Parse(Console.ReadLine());
-        Console.Write("Enter bonus value upon completion: ");
+        Console.Write("What is the bonus for accomplishing it that many times? ");
         int bonusValue = int.Parse(Console.ReadLine());
 
         Goal goal = new ChecklistGoal(requiredTimes, bonusValue);
