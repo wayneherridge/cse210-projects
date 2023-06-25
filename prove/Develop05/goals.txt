@@ -1,32 +1,7 @@
-Total Score: 0
+Total Score: 20
 SimpleGoal
-
-
-0
+t
+t
+20
 [X]
-
-EternalGoal
-t
-t
-0
-Never Complete
-Name: t
-Description: t
-Status: Never Complete
-Total Recorded Events: 0
-
-ChecklistGoal
-t
-t
-0
-Completed 0/0 times
-Name: t
-Description: t
-Status: Completed 0/0 times
-
-SimpleGoal
-
-
-0
-[ ]
 

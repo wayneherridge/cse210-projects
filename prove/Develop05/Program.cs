@@ -272,15 +272,15 @@ public class Program
                         isScoreLine = false;
                         totalScore = int.Parse(line.Split(':')[1].Trim());
                     }
-                    else if (line == "SimpleGoal")
+                    else if (line == "SimpleGoals")
                     {
                         goal = new SimpleGoal();
                     }
-                    else if (line == "EternalGoal")
+                    else if (line == "EternalGoals")
                     {
                         goal = new EternalGoal();
                     }
-                    else if (line == "ChecklistGoal")
+                    else if (line == "ChecklistGoals")
                     {
                         goal = new ChecklistGoal(0, 0);
                     }
