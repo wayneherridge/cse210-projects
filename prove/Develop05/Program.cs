@@ -8,7 +8,7 @@ public class Program
     private static int totalScore = 0;
     private static string fileName = "goals.txt";
 
-    public static void Main()
+    static void Main(string[] args)
     {
         LoadGoals();
         MainMenu();
